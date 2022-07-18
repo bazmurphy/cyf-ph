@@ -66,3 +66,16 @@ test("There are at least 500 words on the page", () => {
 
 const console = document.getElementById("tests");
 prettify.toHTML(run(), console);
+
+// Week 2 In Class Adding CYF Block solution to our Personal Homepage
+document.getElementById('daymode').addEventListener('click', (event) => {
+  let element_list = document.getElementById('main');
+  element_list.style.color = 'black';
+  element_list.style.backgroundColor = 'hsla(240, 67%, 94%, 0.9)';
+});
+
+document.getElementById('nightmode').addEventListener('click', (event) => {
+  let element_list2 = document.getElementById('main');
+  element_list2.style.color = 'white';
+  element_list2.style.backgroundColor = 'hsl(261, 44%, 20%, 0.9);';
+});

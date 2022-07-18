@@ -1,81 +1,56 @@
-/* =================
-  TESTS, LOOK AT THESE
-  Reading tests will always help you discover your requirements.
-  You can make this window bigger. 
-   ===================
-*/
+// Week 2 - Adding a CYF Block Solution to your CYF Personal Home Page
 
-const {
-  core: { test, expect, run },
-  prettify
-} = window.jestLite;
-
-/* =================
-  FIND ELEMENTS
-  These are all the elements we will look for.
-   ===================
-*/
-const getHeader = document.querySelectorAll("header"),
-  getH1 = document.querySelectorAll("h1"),
-  getSiteHeader = document.querySelectorAll(".c-site-header"),
-  getAria = document.querySelectorAll('nav[aria-label="Main Site Links."]'),
-  getMain = document.querySelectorAll("main"),
-  getFooter = document.querySelectorAll("footer"),
-  getSiteFooter = document.querySelectorAll(".c-site-footer"),
-  getIFrame = document.querySelectorAll("iframe"),
-  getImage = document.querySelectorAll("img"),
-  getWords = document.body.innerText;
-
-/* =================
-   ASSERTIONS 
-   These are the things we check are true about your page.
-   Read and update your HTML to discover the requirements.
-   The tests will run every time you update your code.
-   ===================
-*/
-test("There is at least one header element", () => {
-  expect(getHeader.length).toBeGreaterThanOrEqual(1);
-});
-test("There is at least one h1", () => {
-  expect(getH1.length).toBeGreaterThanOrEqual(1);
-});
-test("There is only one header element with the class c-site-header", () => {
-  expect(getSiteHeader.length).toBe(1);
-});
-test("There is a nav element with an aria-label of Main Site Links.", () => {
-  expect(getAria.length).toBeGreaterThanOrEqual(1);
-});
-test("There is only one main element", () => {
-  expect(getMain.length).toBe(1);
-});
-test("There is at least one footer element", () => {
-  expect(getFooter.length).toBeGreaterThanOrEqual(1);
-});
-test("There is only one footer element with the class c-site-footer", () => {
-  expect(getSiteFooter.length).toBe(1);
-});
-test("There is embedded video", () => {
-  expect(getIFrame.length).toBeGreaterThanOrEqual(1);
-});
-test("There is at least one image", () => {
-  expect(getImage.length).toBeGreaterThanOrEqual(1);
-});
-test("There are at least 500 words on the page", () => {
-  expect(getWords.length).toBeGreaterThanOrEqual(500);
-});
-
-const console = document.getElementById("tests");
-prettify.toHTML(run(), console);
-
-// Week 2 In Class Adding CYF Block solution to our Personal Homepage
+// find the element with the id of daymode (in this case a button)
+// listen for a click event on this element
+// find the html elements main, header, ul > li > a, footer
+// adjust the css properties of each (font-color and background-color)
 document.getElementById('daymode').addEventListener('click', (event) => {
-  let element_list = document.getElementById('main');
-  element_list.style.color = 'black';
-  element_list.style.backgroundColor = 'hsla(240, 67%, 94%, 0.9)';
+  let main = document.querySelector('main');
+  main.style.color = 'black';
+  main.style.backgroundColor = 'hsla(240, 67%, 94%, 0.9)';
+
+  let header = document.querySelector('header');
+  header.style.backgroundColor = 'hsla(240, 80%, 70%, 0.9)';
+
+  let headerLinks = document.querySelectorAll('ul > li > a');
+  for (let link of headerLinks) {
+    link.style.color = 'black';
+  }
+
+  let footer = document.querySelector('footer');
+  footer.style.color = 'black';
+  footer.style.backgroundColor = 'hsla(240, 80%, 70%, 0.9)';
+
+  let spans = document.querySelectorAll('span')
+  for (let span of spans) {
+    span.style.color = 'hsla(268, 100%, 10%, 1)';
+  }
 });
 
+// find the element with the id of nightmode (in this case a button)
+// listen for a click event on this element
+// find the html elements main, header, ul > li > a, footer
+// adjust the css properties of each (font-color and background-color)
 document.getElementById('nightmode').addEventListener('click', (event) => {
-  let element_list2 = document.getElementById('main');
-  element_list2.style.color = 'white';
-  element_list2.style.backgroundColor = 'hsl(261, 44%, 20%, 0.9);';
+  let main = document.querySelector('main');
+  main.style.color = 'white';
+  main.style.backgroundColor = 'hsl(261, 44%, 20%, 0.9)';
+
+  let header = document.querySelector('header');
+  header.style.backgroundColor = 'hsla(240, 38%, 12%, 0.9)';
+  
+
+  let headerLinks = document.querySelectorAll('ul > li > a');
+  for (let link of headerLinks) {
+    link.style.color = 'white';
+  }
+
+  let footer = document.querySelector('footer');
+  footer.style.color = 'white';
+  footer.style.backgroundColor = 'hsla(240, 38%, 12%, 0.9)';
+
+  let spans = document.querySelectorAll('span')
+  for (let span of spans) {
+    span.style.color = 'hsla(268, 100%, 90%, 1)';
+  }
 });
